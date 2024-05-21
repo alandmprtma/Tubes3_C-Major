@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7D3E644E-0B8B-44A1-9136-8A48052F3E90}|GUI\\GUI.csproj|c:\\users\\aland\\desktop\\tubes3_c-major\\src\\gui\\gui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7D3E644E-0B8B-44A1-9136-8A48052F3E90}|GUI\\GUI.csproj|solutionrelative:gui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D3E644E-0B8B-44A1-9136-8A48052F3E90}|GUI\\GUI.csproj|C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\gui\\togglebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D3E644E-0B8B-44A1-9136-8A48052F3E90}|GUI\\GUI.csproj|solutionrelative:gui\\togglebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D3E644E-0B8B-44A1-9136-8A48052F3E90}|GUI\\GUI.csproj|C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\gui\\togglebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7D3E644E-0B8B-44A1-9136-8A48052F3E90}|GUI\\GUI.csproj|solutionrelative:gui\\togglebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D3E644E-0B8B-44A1-9136-8A48052F3E90}|GUI\\GUI.csproj|C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\gui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D3E644E-0B8B-44A1-9136-8A48052F3E90}|GUI\\GUI.csproj|solutionrelative:gui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D3E644E-0B8B-44A1-9136-8A48052F3E90}|GUI\\GUI.csproj|C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\gui\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D3E644E-0B8B-44A1-9136-8A48052F3E90}|GUI\\GUI.csproj|solutionrelative:gui\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\GUI\\Form1.cs",
+              "RelativeDocumentMoniker": "GUI\\Form1.cs",
+              "ToolTip": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\GUI\\Form1.cs",
+              "RelativeToolTip": "GUI\\Form1.cs",
+              "ViewState": "AQIAABoBAAAAAAAAAIA6wCYBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T04:18:56.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ToggleButton.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\GUI\\ToggleButton.cs",
+              "RelativeDocumentMoniker": "GUI\\ToggleButton.cs",
+              "ToolTip": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\GUI\\ToggleButton.cs [Design]",
+              "RelativeToolTip": "GUI\\ToggleButton.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T14:01:48.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ToggleButton.cs",
+              "DocumentMoniker": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\GUI\\ToggleButton.cs",
+              "RelativeDocumentMoniker": "GUI\\ToggleButton.cs",
+              "ToolTip": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\GUI\\ToggleButton.cs",
+              "RelativeToolTip": "GUI\\ToggleButton.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAqwCAAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T13:13:51.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\GUI\\Form1.cs",
+              "RelativeDocumentMoniker": "GUI\\Form1.cs",
+              "ToolTip": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\GUI\\Form1.cs [Design]",
+              "RelativeToolTip": "GUI\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T13:09:59.641Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\GUI\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "GUI\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\aland\\Desktop\\Tubes3_C-Major\\src\\GUI\\GUI\\Form1.Designer.cs",
+              "RelativeToolTip": "GUI\\Form1.Designer.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBIAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T05:56:05.753Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
