@@ -249,8 +249,12 @@ namespace GUI
                     imageLocation = dialog.FileName;
 
                     imageUploader.ImageLocation = imageLocation;
+
+                    MessageBox.Show(imageLocation, "Image Location", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
-            }catch (Exception) {
+            }
+            catch (Exception) {
                 MessageBox.Show("An Error Occured","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
