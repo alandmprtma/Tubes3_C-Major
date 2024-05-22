@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,6 +93,27 @@ namespace GUI.Logic
 
             return croppedBitmap;
         }
+
+
+        //INI FUNGSI BUAT LOAD IMAGE DARI PATH DARI HASIL DATABASE
+        public Bitmap loadImage(string path)
+        {
+            string currentDirectory = Directory.GetCurrentDirectory();
+            DirectoryInfo directoryInfo = new DirectoryInfo(currentDirectory);
+            DirectoryInfo parentDirectory = directoryInfo.Parent.Parent.Parent.Parent.Parent;
+            string desiredDirectory = parentDirectory.FullName;
+            string finalPath = Path.Combine(desiredDirectory, path);
+
+            if (File.Exists(finalPath))
+            {
+                return new Bitmap(finalPath);
+            }
+            else
+            {
+                throw new FileNotFoundException("Image not found at path: " + finalPath);
+            }
+        }
+
 
        
 
@@ -216,6 +238,8 @@ namespace GUI.Logic
 
       
     }
+
+
 
 
     //Cara pakai
