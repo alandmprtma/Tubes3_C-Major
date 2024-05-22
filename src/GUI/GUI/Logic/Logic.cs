@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GUI.Logic
 {
@@ -51,6 +52,7 @@ namespace GUI.Logic
                     Color grayscaleColor = Color.FromArgb(grayscaleValue, grayscaleValue, grayscaleValue);
                     grayscaleImg.SetPixel(x, y, grayscaleColor);
                 }
+                MessageBox.Show("test");
             }
 
             return grayscaleImg;
@@ -91,6 +93,128 @@ namespace GUI.Logic
             return croppedBitmap;
         }
 
+       
+
+    }
+
+    public class BoyerMoore
+    {
+        // Fungsi untuk membangun array last yang menyimpan posisi terakhir kemunculan setiap karakter dalam pattern
+        private static int[] BuildLast(string pattern)
+        {
+            int[] last = new int[256]; // Menggunakan 256 untuk semua karakter ASCII
+            for (int k = 0; k < 256; k++)
+                last[k] = -1; // Inisialisasi semua karakter ke -1
+            for (int k = 0; k < pattern.Length; k++)
+                last[pattern[k]] = k; // Set posisi terakhir kemunculan karakter
+            return last;
+        }
+
+        public static int BmMatch(string text, string pattern)
+        {
+            int[] last = BuildLast(pattern);
+            int n = text.Length;
+            int m = pattern.Length;
+            int i = m - 1;
+
+            if (i > n - 1)
+                return -1; // tidak ada kecocokan jika pola lebih panjang dari teks
+
+            int j = m - 1;
+
+            do
+            {
+                if (pattern[j] == text[i])
+                {
+                    if (j == 0)
+                        return i; // kecocokan ditemukan
+                    else
+                    {
+                        // teknik looking-glass
+                        i--;
+                        j--;
+                    }
+                }
+                else
+                {
+                    // teknik character jump
+                    int lo = last[text[i]]; // posisi terakhir kemunculan karakter pada pattern
+                    i = i + m - Math.Min(j, 1 + lo);
+                    j = m - 1;
+                }
+            } while (i <= n - 1);
+
+            return -1; // tidak ada kecocokan
+        }
+    }
+
+
+    public class KMP
+    {
+        public static int KmpMatch(string text, string pattern)
+        {
+            int n = text.Length;
+            int m = pattern.Length;
+            int[] b = ComputeBorder(pattern);
+            int i = 0; // indeks pada text
+            int j = 0; // indeks pada pattern
+
+            while (i < n)
+            {
+                if (pattern[j] == text[i])
+                {
+                    if (j == m - 1)
+                        return i - m + 1; // match ditemukan
+                    i++;
+                    j++;
+                }
+                else if (j > 0)
+                {
+                    j = b[j - 1];
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+            return -1; // tidak ada kecocokan
+        }
+
+        public static int[] ComputeBorder(string pattern)
+        {
+            int m = pattern.Length;
+            int[] b = new int[m];
+            b[0] = 0;
+            int j = 0;
+            int i = 1;
+
+            while (i < m)
+            {
+                if (pattern[i] == pattern[j])
+                {
+                    j++;
+                    b[i] = j;
+                    i++;
+                }
+                else
+                {
+                    if (j > 0)
+                    {
+                        j = b[j - 1];
+                    }
+                    else
+                    {
+                        b[i] = 0;
+                        i++;
+                    }
+                }
+            }
+
+            return b;
+        }
+
+      
     }
 
 
@@ -106,7 +230,16 @@ namespace GUI.Logic
     // }
 
 
+    //public static void Main(string[] args)
+    //{
+      //  string text = "Halo Dunia";
+        //string pattern = "Dunia";
 
+       // int result = BmMatch(text, pattern);
+       // int result = KmpMatch(text,pattern);
+       // if (result != -1)
+        //    Console.WriteLine("Pattern ditemukan pada indeks: " + result);
+        // else
+          //  Console.WriteLine("Pattern tidak ditemukan.");
+    }
 
-
-}
