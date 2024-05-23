@@ -25,7 +25,6 @@ namespace GUI
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.toggleButton1 = new GUI.ToggleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -35,6 +34,7 @@ namespace GUI
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.toggleButton1 = new GUI.ToggleButton();
             ((System.ComponentModel.ISupportInitialize)(this.imageUploader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -47,6 +47,7 @@ namespace GUI
             this.imageUploader.Location = new System.Drawing.Point(39, 149);
             this.imageUploader.Name = "imageUploader";
             this.imageUploader.Size = new System.Drawing.Size(310, 332);
+            this.imageUploader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imageUploader.TabIndex = 0;
             this.imageUploader.TabStop = false;
             this.imageUploader.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -84,19 +85,6 @@ namespace GUI
             this.pictureBox2.Size = new System.Drawing.Size(291, 332);
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
-            // 
-            // toggleButton1
-            // 
-            this.toggleButton1.AutoSize = true;
-            this.toggleButton1.BackColor = System.Drawing.Color.Transparent;
-            this.toggleButton1.Location = new System.Drawing.Point(308, 588);
-            this.toggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
-            this.toggleButton1.Name = "toggleButton1";
-            this.toggleButton1.Size = new System.Drawing.Size(177, 29);
-            this.toggleButton1.TabIndex = 4;
-            this.toggleButton1.Text = "toggleButton1";
-            this.toggleButton1.UseVisualStyleBackColor = false;
-            this.toggleButton1.CheckedChanged += new System.EventHandler(this.toggleButton1_CheckedChanged);
             // 
             // label1
             // 
@@ -195,6 +183,19 @@ namespace GUI
             this.label8.Size = new System.Drawing.Size(1101, 61);
             this.label8.TabIndex = 13;
             this.label8.Text = "Tugas Besar 3 Strategi Algoritma 2023/2024";
+            // 
+            // toggleButton1
+            // 
+            this.toggleButton1.AutoSize = true;
+            this.toggleButton1.BackColor = System.Drawing.Color.Transparent;
+            this.toggleButton1.Location = new System.Drawing.Point(308, 588);
+            this.toggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
+            this.toggleButton1.Name = "toggleButton1";
+            this.toggleButton1.Size = new System.Drawing.Size(177, 29);
+            this.toggleButton1.TabIndex = 4;
+            this.toggleButton1.Text = "toggleButton1";
+            this.toggleButton1.UseVisualStyleBackColor = false;
+            this.toggleButton1.CheckedChanged += new System.EventHandler(this.toggleButton1_CheckedChanged);
             // 
             // Form1
             // 
