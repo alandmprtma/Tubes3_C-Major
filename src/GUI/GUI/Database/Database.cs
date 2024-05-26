@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace GUI.Database
 {
-    class Database
+    public class Database
     {
         private static string connectionString = "server=localhost;user=root;password=;database=stima";
         private static MySqlConnection connection = new MySqlConnection(connectionString);
@@ -37,7 +37,7 @@ namespace GUI.Database
         }
     }
   
-    class Biodata
+    public class Biodata
     {
         public string NIK { get; set; }
         public string Nama { get; set; }
@@ -49,7 +49,7 @@ namespace GUI.Database
         }
     }
 
-    class BiodataLoader
+    public class BiodataLoader
     {
         private List<Biodata> biodataList;
 
@@ -99,7 +99,7 @@ namespace GUI.Database
     }
 
 
-    class SidikJari
+    public class SidikJari
     {
         public string BerkasCitra { get; set; }
         public string Nama { get; set; }
@@ -111,7 +111,7 @@ namespace GUI.Database
         }
     }
 
-    class SidikJariLoader
+    public class SidikJariLoader
     {
         private List<SidikJari> sidikJariList;
 

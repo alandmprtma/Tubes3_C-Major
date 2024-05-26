@@ -6,21 +6,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Database = GUI.Database;
 
 namespace GUI.Logic
 {
     public class Data {
-        public static string chosenImageBinary;
+        // Database
+        public static List<Database.SidikJari> sidikJariList = new Database.SidikJariLoader().GetSidikJariList();
+
+        // Input
+        public static string chosenImageASCII;
+        public static Boolean isImageChosen = false;
     }
 
     internal class Manipulation
     {
-        public static string ImageToBinary(string imagePath)
+        public static string ImageToBinary(Bitmap img)
         {
-            // Membaca gambar
-            Bitmap img = new Bitmap(imagePath);
-            img = CropImageContiguous(img);
-
             // Konversi gambar ke grayscale
             Bitmap grayscaleImg = ConvertToGrayscale(img);
 
@@ -43,32 +45,6 @@ namespace GUI.Logic
             return binaryString;
         }
 
-        // public static string ImageToBinaryBitmap(Bitmap img)
-        // {
-        //     img = CropImageContiguous(img);
-            
-        //     // Konversi gambar ke grayscale
-        //     Bitmap grayscaleImg = ConvertToGrayscale(img);
-
-        //     // Mengubah gambar menjadi string biner
-        //     string binaryString = "";
-
-        //     for (int y = 0; y < grayscaleImg.Height; y++)
-        //     {
-        //         for (int x = 0; x < grayscaleImg.Width; x++)
-        //         {
-        //             Color pixelColor = grayscaleImg.GetPixel(x, y);
-        //             int grayscaleValue = (int)(pixelColor.R * 0.3 + pixelColor.G * 0.59 + pixelColor.B * 0.11); // Nilai grayscale
-
-        //             // Mengubah nilai piksel menjadi 0 atau 1 (binary) berdasarkan threshold
-        //             int threshold = 128;
-        //             binaryString += grayscaleValue > threshold ? "1" : "0";
-        //         }
-        //     }
-
-        //     return binaryString;
-        // }
-
         public static Bitmap ConvertToGrayscale(Bitmap img)
         {
             Bitmap grayscaleImg = new Bitmap(img.Width, img.Height);
@@ -82,7 +58,6 @@ namespace GUI.Logic
                     Color grayscaleColor = Color.FromArgb(grayscaleValue, grayscaleValue, grayscaleValue);
                     grayscaleImg.SetPixel(x, y, grayscaleColor);
                 }
-                MessageBox.Show("test");
             }
 
             return grayscaleImg;
@@ -155,10 +130,6 @@ namespace GUI.Logic
                 throw new FileNotFoundException("Image not found at path: " + finalPath);
             }
         }
-
-        public static void testShowMessageBox() {
-            MessageBox.Show("test");
-        }
     }
 
     public class BoyerMoore
@@ -215,7 +186,7 @@ namespace GUI.Logic
 
     public class KMP
     {
-        public static int KmpMatch(string text, string pattern)
+        public static int KMPMatch(string text, string pattern)
         {
             int n = text.Length;
             int m = pattern.Length;

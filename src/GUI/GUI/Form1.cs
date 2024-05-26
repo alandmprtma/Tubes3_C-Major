@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using LogicData = GUI.Logic.Data;
 using LogicManip = GUI.Logic.Manipulation;
+using LogicKMP = GUI.Logic.KMP;
 using Database = GUI.Database;
 
 namespace GUI
@@ -251,14 +252,21 @@ namespace GUI
 
                 if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    imageLocation = dialog.FileName;
+                    // MessageBox.Show(imageLocation, "Image Location", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    // Change picture box to image
+                    imageLocation = dialog.FileName;
                     imageUploader.ImageLocation = imageLocation;
 
-                    MessageBox.Show(imageLocation, "Image Location", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Set chosen image binary
+                    Bitmap img = new Bitmap(imageLocation);
+                    Bitmap img_cropped = LogicManip.CropImageContiguous(img);
 
-                    string binaryString = LogicManip.ImageToBinary(imageLocation);
-                    LogicData.chosenImageBinary = binaryString;
+                    string stringBinary = LogicManip.ImageToBinary(img);
+                    string stringASCII = LogicManip.BinaryToAscii(stringBinary);
+                    
+                    LogicData.chosenImageASCII = stringASCII;
+                    LogicData.isImageChosen = true;
                 }
             }
             catch (Exception) {
@@ -288,20 +296,32 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Get list of fingerprints from database
-            Database.SidikJariLoader sidikJariLoader = new Database.SidikJariLoader();
-            List<Database.SidikJari> sidikJariList = sidikJariLoader.GetSidikJariList();
+            // Get fingerprint list
+            List<Database.SidikJari> sidikJariList = LogicData.sidikJariList;
 
-            // Get random fingerprint
-            int randomIndex = new Random().Next(0, sidikJariList.Count);
-            
-            Database.SidikJari randomSidikJari = sidikJariList[randomIndex];
-            Console.WriteLine(randomSidikJari.BerkasCitra + " " + randomSidikJari.Nama);
+            // Iterate through fingerprint list
+            foreach (Database.SidikJari sidikJari in sidikJariList) {
+                // Get fingerprint image
+                Bitmap bitmap = LogicManip.loadImage(sidikJari.BerkasCitra);
 
-            Bitmap bitmap = LogicManip.loadImage(randomSidikJari.BerkasCitra);
+                // Convert to ASCII
+                string stringBinary = LogicManip.ImageToBinary(bitmap);
+                string stringASCII = LogicManip.BinaryToAscii(stringBinary);
 
-            // Set pictureBox1 to random fingerprint
-            pictureBox1.Image = bitmap;
+                // Check if exact match using KMP
+                int match = LogicKMP.KMPMatch(LogicData.chosenImageASCII, stringASCII);
+
+                // Print data
+                Console.WriteLine("Nama: " + sidikJari.Nama);
+                Console.WriteLine("Path gambar: " + sidikJari.BerkasCitra);
+ 
+                if (match != -1) {
+                    // Set pictureBox2 to matched fingerprint
+                    pictureBox1.Image = bitmap;
+
+                    break;
+                }
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
