@@ -9,8 +9,33 @@ using MySql.Data.MySqlClient;
 
 namespace GUI.Database
 {
- 
+    class Database
+    {
+        private static string connectionString = "server=localhost;user=root;password=;database=stima";
+        private static MySqlConnection connection = new MySqlConnection(connectionString);
 
+        public static void OpenConnection()
+        {
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        public static void CloseConnection()
+        {
+            connection.Close();
+        }
+
+        public static MySqlConnection GetConnection()
+        {
+            return connection;
+        }
+    }
   
     class Biodata
     {
@@ -36,8 +61,10 @@ namespace GUI.Database
 
         private void LoadDataFromSql()
         {
-            string connectionString = "server=localhost;user=root;password=root;database=stima";
-            MySqlConnection connection = new MySqlConnection(connectionString);
+            // string connectionString = "server=localhost;user=root;password=root;database=stima";
+            // string connectionString = "server=localhost;user=root;password=;database=stima";
+            // MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlConnection connection = Database.GetConnection();
 
             try
             {
@@ -96,8 +123,9 @@ namespace GUI.Database
 
         private void LoadDataFromSql()
         {
-            string connectionString = "server=localhost;user=root;password=root;database=stima";
-            MySqlConnection connection = new MySqlConnection(connectionString);
+            // string connectionString = "server=localhost;user=root;password=root;database=stima";
+            // MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlConnection connection = Database.GetConnection();
 
             try
             {

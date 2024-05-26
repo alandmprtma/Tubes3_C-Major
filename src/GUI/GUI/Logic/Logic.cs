@@ -9,14 +9,17 @@ using System.Windows.Forms;
 
 namespace GUI.Logic
 {
+    public class Data {
+        public static string chosenImageBinary;
+    }
+
     internal class Manipulation
     {
-
-
         public static string ImageToBinary(string imagePath)
         {
             // Membaca gambar
             Bitmap img = new Bitmap(imagePath);
+            img = CropImageContiguous(img);
 
             // Konversi gambar ke grayscale
             Bitmap grayscaleImg = ConvertToGrayscale(img);
@@ -39,6 +42,32 @@ namespace GUI.Logic
 
             return binaryString;
         }
+
+        // public static string ImageToBinaryBitmap(Bitmap img)
+        // {
+        //     img = CropImageContiguous(img);
+            
+        //     // Konversi gambar ke grayscale
+        //     Bitmap grayscaleImg = ConvertToGrayscale(img);
+
+        //     // Mengubah gambar menjadi string biner
+        //     string binaryString = "";
+
+        //     for (int y = 0; y < grayscaleImg.Height; y++)
+        //     {
+        //         for (int x = 0; x < grayscaleImg.Width; x++)
+        //         {
+        //             Color pixelColor = grayscaleImg.GetPixel(x, y);
+        //             int grayscaleValue = (int)(pixelColor.R * 0.3 + pixelColor.G * 0.59 + pixelColor.B * 0.11); // Nilai grayscale
+
+        //             // Mengubah nilai piksel menjadi 0 atau 1 (binary) berdasarkan threshold
+        //             int threshold = 128;
+        //             binaryString += grayscaleValue > threshold ? "1" : "0";
+        //         }
+        //     }
+
+        //     return binaryString;
+        // }
 
         public static Bitmap ConvertToGrayscale(Bitmap img)
         {
@@ -94,9 +123,22 @@ namespace GUI.Logic
             return croppedBitmap;
         }
 
+        // Memotong 30 pixel kontigu di tengah
+        public static Bitmap CropImageContiguous(Bitmap bitmap) {
+            int centerX = bitmap.Width / 2;
+            int centerY = bitmap.Height / 2;
+
+            int cropWidth = 30;
+            int cropHeight = 1;
+            Rectangle cropRect = new Rectangle(centerX, centerY, cropWidth, cropHeight);
+
+            Bitmap croppedBitmap = bitmap.Clone(cropRect, bitmap.PixelFormat);
+
+            return croppedBitmap;
+        }
 
         //INI FUNGSI BUAT LOAD IMAGE DARI PATH DARI HASIL DATABASE
-        public Bitmap loadImage(string path)
+        public static Bitmap loadImage(string path)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo directoryInfo = new DirectoryInfo(currentDirectory);
@@ -114,9 +156,9 @@ namespace GUI.Logic
             }
         }
 
-
-       
-
+        public static void testShowMessageBox() {
+            MessageBox.Show("test");
+        }
     }
 
     public class BoyerMoore

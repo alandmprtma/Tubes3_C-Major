@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using LogicData = GUI.Logic.Data;
+using LogicManip = GUI.Logic.Manipulation;
+using Database = GUI.Database;
+
 namespace GUI
 {
     public partial class Form1 : Form
@@ -72,6 +76,7 @@ namespace GUI
             this.pictureBox1.Location = new System.Drawing.Point(399, 149);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(307, 332);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
@@ -234,7 +239,6 @@ namespace GUI
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -243,7 +247,7 @@ namespace GUI
             {
                 String imageLocation = ""; 
                 OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.*";
+                dialog.Filter = "BMP files (*.bmp)|*.bmp|JPG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All Files (*.*)|*.*";
 
                 if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
@@ -253,6 +257,8 @@ namespace GUI
 
                     MessageBox.Show(imageLocation, "Image Location", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    string binaryString = LogicManip.ImageToBinary(imageLocation);
+                    LogicData.chosenImageBinary = binaryString;
                 }
             }
             catch (Exception) {
@@ -277,12 +283,25 @@ namespace GUI
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Halo, dunia!");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Get list of fingerprints from database
+            Database.SidikJariLoader sidikJariLoader = new Database.SidikJariLoader();
+            List<Database.SidikJari> sidikJariList = sidikJariLoader.GetSidikJariList();
 
+            // Get random fingerprint
+            int randomIndex = new Random().Next(0, sidikJariList.Count);
+            
+            Database.SidikJari randomSidikJari = sidikJariList[randomIndex];
+            Console.WriteLine(randomSidikJari.BerkasCitra + " " + randomSidikJari.Nama);
+
+            Bitmap bitmap = LogicManip.loadImage(randomSidikJari.BerkasCitra);
+
+            // Set pictureBox1 to random fingerprint
+            pictureBox1.Image = bitmap;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -297,7 +316,6 @@ namespace GUI
 
         private void label7_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
