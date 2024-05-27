@@ -99,9 +99,9 @@ namespace GUI
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(213, 588);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 31);
+            this.label1.Size = new System.Drawing.Size(75, 31);
             this.label1.TabIndex = 5;
-            this.label1.Text = "KM";
+            this.label1.Text = "KMP";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -111,9 +111,9 @@ namespace GUI
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(483, 588);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 31);
+            this.label2.Size = new System.Drawing.Size(56, 31);
             this.label2.TabIndex = 6;
-            this.label2.Text = "BMP";
+            this.label2.Text = "BM";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button2
@@ -189,6 +189,7 @@ namespace GUI
             this.label8.Size = new System.Drawing.Size(1101, 61);
             this.label8.TabIndex = 13;
             this.label8.Text = "Tugas Besar 3 Strategi Algoritma 2023/2024";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // toggleButton1
             // 
@@ -276,7 +277,8 @@ namespace GUI
 
         private void toggleButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            this.toggleButton1.isBM = !this.toggleButton1.isBM;
+            this.toggleButton1.isKMP = !this.toggleButton1.isKMP;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -336,6 +338,11 @@ namespace GUI
 
         private void label7_Click(object sender, EventArgs e)
         {
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

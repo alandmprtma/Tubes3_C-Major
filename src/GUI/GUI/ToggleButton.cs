@@ -11,6 +11,8 @@ namespace GUI
 {
     public class ToggleButton : CheckBox
     {
+        public bool isKMP = true;
+        public bool isBM = false;
         private Color OnToggleColor = Color.WhiteSmoke;
         private Color OffBackColor = Color.DarkSlateGray;
         private Color onBackColor = Color.MediumSlateBlue;
