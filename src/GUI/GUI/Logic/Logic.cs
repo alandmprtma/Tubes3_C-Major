@@ -4,8 +4,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Database = GUI.Database;
 
 namespace GUI.Logic
@@ -13,6 +15,7 @@ namespace GUI.Logic
     public class Data {
         // Database
         public static List<Database.SidikJari> sidikJariList = new Database.SidikJariLoader().GetSidikJariList();
+        public static List<Database.Biodata> biodataList = new Database.BiodataLoader().GetBiodataList();
 
         // Input
         public static string chosenImageASCII;
@@ -248,8 +251,58 @@ namespace GUI.Logic
 
             return b;
         }
+    }
 
-      
+    public class AlayConverter
+    {
+        public static string NameToRegex(string input)
+        {
+            Dictionary<char, string> map = new Dictionary<char, string>
+            {
+                { 'a', "[Aa4]?" },
+                { 'b', "[Bb8]" },
+                { 'c', "[Cc]" },
+                { 'd', "[Dd]" },
+                { 'e', "[Ee3]?" },
+                { 'f', "[Ff]" },
+                { 'g', "[Gg6]" },
+                { 'h', "[Hh]" },
+                { 'i', "[Ii1]?" },
+                { 'j', "[Jj]" },
+                { 'k', "[Kk]" },
+                { 'l', "[Ll]" },
+                { 'm', "[Mm]" },
+                { 'n', "[Nn]" },
+                { 'o', "[Oo0]?" },
+                { 'p', "[Pp]" },
+                { 'q', "[Qq]" },
+                { 'r', "[Rr]" },
+                { 's', "[Ss]" },
+                { 't', "[Tt7]?" },
+                { 'u', "[Uu]?" },
+                { 'v', "[Vv]" },
+                { 'w', "[Ww]" },
+                { 'x', "[Xx]" },
+                { 'y', "[Yy]" },
+                { 'z', "[Zz]" },
+                {' ', "[ ]" }
+            };
+            foreach (var item in map)
+            {
+                input = input.Replace(item.Key.ToString(), item.Value);
+            }
+            return input;
+        }
+    }
+
+    public static class StringExtensions
+    {
+        public static string FirstCharToUpper(this string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                throw new ArgumentException("Input cannot be null or empty");
+            return input[0].ToString().ToUpper() + input.Substring(1).ToLower();
+        }
     }
 
 
@@ -269,14 +322,14 @@ namespace GUI.Logic
 
     //public static void Main(string[] args)
     //{
-      //  string text = "Halo Dunia";
-        //string pattern = "Dunia";
+    //  string text = "Halo Dunia";
+    //string pattern = "Dunia";
 
-       // int result = BmMatch(text, pattern);
-       // int result = KmpMatch(text,pattern);
-       // if (result != -1)
-        //    Console.WriteLine("Pattern ditemukan pada indeks: " + result);
-        // else
-          //  Console.WriteLine("Pattern tidak ditemukan.");
-    }
+    // int result = BmMatch(text, pattern);
+    // int result = KmpMatch(text,pattern);
+    // if (result != -1)
+    //    Console.WriteLine("Pattern ditemukan pada indeks: " + result);
+    // else
+    //  Console.WriteLine("Pattern tidak ditemukan.");
+}
 

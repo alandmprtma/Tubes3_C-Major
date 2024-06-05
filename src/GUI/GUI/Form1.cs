@@ -13,7 +13,10 @@ using System.Diagnostics;
 using LogicData = GUI.Logic.Data;
 using LogicManip = GUI.Logic.Manipulation;
 using LogicKMP = GUI.Logic.KMP;
+using RegexAlay = GUI.Logic.AlayConverter;
 using Database = GUI.Database;
+using System.Text.RegularExpressions;
+using GUI.Database;
 
 namespace GUI
 {
@@ -365,13 +368,26 @@ namespace GUI
                     if (match != -1) {
                         // Set pictureBox2 to matched fingerprint
                         pictureBox1.Image = bitmap;
+                        List<Database.Biodata> biodataList = LogicData.biodataList;
+                        string alayRegex = RegexAlay.NameToRegex(sidikJari.Nama.ToLower());
+                        Console.WriteLine(alayRegex);
 
+                        foreach (var biodata in biodataList)
+                        {
+                            if (Regex.IsMatch(biodata.Nama, alayRegex, RegexOptions.IgnoreCase))
+                            {
+                                Console.WriteLine("Match found in biodata:");
+                                Console.WriteLine("Nama: " + biodata.Nama);
+                                Console.WriteLine("NIK: " + biodata.NIK);
+                                break;
+                            }
+                        }
                         break;
                     }
                 }
             }
             stopwatch.Stop();
-            this.label9.Text = "Waktu Pencarian                        :  "+ stopwatch.ElapsedMilliseconds +" ms"
+            this.label9.Text = "Waktu Pencarian                        :  " + stopwatch.ElapsedMilliseconds + " ms";
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -386,6 +402,24 @@ namespace GUI
 
         private void label7_Click(object sender, EventArgs e)
         {
+            //List<Database.SidikJari> sidikJariList = new Database.SidikJariLoader().GetSidikJariList();
+
+            //foreach (Database.SidikJari sidikJari in sidikJariList) {
+            //  Console.WriteLine(sidikJari.Nama + " " + sidikJari.BerkasCitra);
+            //}
+
+            //string input = "Bintang Dwi Marthen";
+            //string lowerCaseInput = input.ToLower();
+            //string corrupted = "B1nt4n6 Dw1 M4rthen";
+            //string regex = RegexAlay.NameToRegex(lowerCaseInput);
+            //if (Regex.IsMatch(corrupted, regex, RegexOptions.IgnoreCase))
+            //{
+                //Console.WriteLine("Match found in biodata:");
+            //}
+            //else
+            //{
+              //  Console.WriteLine(" kaga Match found in biodata:");
+            //}
         }
 
         private void label8_Click(object sender, EventArgs e)
