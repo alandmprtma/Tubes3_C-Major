@@ -36,18 +36,47 @@ namespace GUI.Database
             return connection;
         }
     }
-  
+
     public class Biodata
     {
         public string NIK { get; set; }
         public string Nama { get; set; }
 
-        public Biodata(string nik, string nama)
+        public string Tempat_Lahir { get; set; }
+
+        public string Tanggal_Lahir { get; set; }
+
+        public string Jenis_Kelamin { get; set; }
+
+        public string Golongan_Darah { get; set; }
+
+        public string Alamat { get; set; }
+
+        public string Agama { get; set; }
+
+        public string Status_Perkawinan { get; set; }
+
+        public string Pekerjaan { get; set; }
+
+        public string Kewarganegaraan { get; set; }
+
+
+        public Biodata(string nik, string nama, string tempatLahir, string tanggalLahir, string jenisKelamin, string golonganDarah, string alamat, string agama, string statusPerkawinan, string pekerjaan, string kewarganegaraan)
         {
             NIK = nik;
             Nama = nama;
+            Tempat_Lahir = tempatLahir;
+            Tanggal_Lahir = tanggalLahir;
+            Jenis_Kelamin = jenisKelamin;
+            Golongan_Darah = golonganDarah;
+            Alamat = alamat;
+            Agama = agama;
+            Status_Perkawinan = statusPerkawinan;
+            Pekerjaan = pekerjaan;
+            Kewarganegaraan = kewarganegaraan;
         }
     }
+
 
     public class BiodataLoader
     {
@@ -77,7 +106,16 @@ namespace GUI.Database
                 {
                     string nik = reader["NIK"].ToString();
                     string nama = reader["nama"].ToString();
-                    biodataList.Add(new Biodata(nik, nama));
+                    string tempatLahir = reader["tempat_lahir"].ToString();
+                    string tanggalLahir = reader["tanggal_lahir"].ToString();
+                    string jenisKelamin = reader["jenis_kelamin"].ToString();
+                    string golonganDarah = reader["golongan_darah"].ToString();
+                    string alamat = reader["alamat"].ToString();
+                    string agama = reader["agama"].ToString();
+                    string statusPerkawinan = reader["status_perkawinan"].ToString();
+                    string pekerjaan = reader["pekerjaan"].ToString();
+                    string kewarganegaraan = reader["kewarganegaraan"].ToString();
+                    biodataList.Add(new Biodata(nik, nama, tempatLahir, tanggalLahir, jenisKelamin, golonganDarah, alamat, agama, statusPerkawinan, pekerjaan, kewarganegaraan));
                 }
 
                 reader.Close();

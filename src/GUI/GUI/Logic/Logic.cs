@@ -277,14 +277,14 @@ namespace GUI.Logic
                 { 'p', "[Pp]" },
                 { 'q', "[Qq]" },
                 { 'r', "[Rr]" },
-                { 's', "[Ss]" },
+                { 's', "[Ss5]" },
                 { 't', "[Tt7]?" },
                 { 'u', "[Uu]?" },
                 { 'v', "[Vv]" },
                 { 'w', "[Ww]" },
                 { 'x', "[Xx]" },
                 { 'y', "[Yy]" },
-                { 'z', "[Zz]" },
+                { 'z', "[Zz2]" },
                 {' ', "[ ]" }
             };
             foreach (var item in map)

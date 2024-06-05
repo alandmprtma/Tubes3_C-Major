@@ -48,6 +48,17 @@ namespace GUI
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.NIK = new System.Windows.Forms.Label();
+            this.Nama = new System.Windows.Forms.Label();
+            this.TempatLahir = new System.Windows.Forms.Label();
+            this.TanggalLahir = new System.Windows.Forms.Label();
+            this.GolonganDarah = new System.Windows.Forms.Label();
+            this.Alamat = new System.Windows.Forms.Label();
+            this.Agama = new System.Windows.Forms.Label();
+            this.StatusPerkawinan = new System.Windows.Forms.Label();
+            this.Pekerjaan = new System.Windows.Forms.Label();
+            this.Kewarganegaraan = new System.Windows.Forms.Label();
+            this.JenisKelamin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imageUploader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -93,12 +104,14 @@ namespace GUI
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox2.Location = new System.Drawing.Point(751, 149);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(291, 332);
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label1
             // 
@@ -246,12 +259,123 @@ namespace GUI
             this.label11.Size = new System.Drawing.Size(0, 13);
             this.label11.TabIndex = 16;
             // 
+            // NIK
+            // 
+            this.NIK.AutoSize = true;
+            this.NIK.BackColor = System.Drawing.Color.White;
+            this.NIK.Location = new System.Drawing.Point(758, 160);
+            this.NIK.Name = "NIK";
+            this.NIK.Size = new System.Drawing.Size(0, 13);
+            this.NIK.TabIndex = 17;
+            // 
+            // Nama
+            // 
+            this.Nama.AutoSize = true;
+            this.Nama.BackColor = System.Drawing.Color.White;
+            this.Nama.Location = new System.Drawing.Point(758, 184);
+            this.Nama.Name = "Nama";
+            this.Nama.Size = new System.Drawing.Size(0, 13);
+            this.Nama.TabIndex = 18;
+            // 
+            // TempatLahir
+            // 
+            this.TempatLahir.AutoSize = true;
+            this.TempatLahir.BackColor = System.Drawing.Color.White;
+            this.TempatLahir.Location = new System.Drawing.Point(758, 209);
+            this.TempatLahir.Name = "TempatLahir";
+            this.TempatLahir.Size = new System.Drawing.Size(0, 13);
+            this.TempatLahir.TabIndex = 19;
+            // 
+            // TanggalLahir
+            // 
+            this.TanggalLahir.AutoSize = true;
+            this.TanggalLahir.BackColor = System.Drawing.Color.White;
+            this.TanggalLahir.Location = new System.Drawing.Point(758, 234);
+            this.TanggalLahir.Name = "TanggalLahir";
+            this.TanggalLahir.Size = new System.Drawing.Size(0, 13);
+            this.TanggalLahir.TabIndex = 20;
+            // 
+            // GolonganDarah
+            // 
+            this.GolonganDarah.AutoSize = true;
+            this.GolonganDarah.BackColor = System.Drawing.Color.White;
+            this.GolonganDarah.Location = new System.Drawing.Point(758, 285);
+            this.GolonganDarah.Name = "GolonganDarah";
+            this.GolonganDarah.Size = new System.Drawing.Size(0, 13);
+            this.GolonganDarah.TabIndex = 21;
+            // 
+            // Alamat
+            // 
+            this.Alamat.AutoSize = true;
+            this.Alamat.BackColor = System.Drawing.Color.White;
+            this.Alamat.Location = new System.Drawing.Point(758, 309);
+            this.Alamat.Name = "Alamat";
+            this.Alamat.Size = new System.Drawing.Size(0, 13);
+            this.Alamat.TabIndex = 22;
+            // 
+            // Agama
+            // 
+            this.Agama.AutoSize = true;
+            this.Agama.BackColor = System.Drawing.Color.White;
+            this.Agama.Location = new System.Drawing.Point(758, 334);
+            this.Agama.Name = "Agama";
+            this.Agama.Size = new System.Drawing.Size(0, 13);
+            this.Agama.TabIndex = 23;
+            this.Agama.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // StatusPerkawinan
+            // 
+            this.StatusPerkawinan.AutoSize = true;
+            this.StatusPerkawinan.BackColor = System.Drawing.Color.White;
+            this.StatusPerkawinan.Location = new System.Drawing.Point(758, 359);
+            this.StatusPerkawinan.Name = "StatusPerkawinan";
+            this.StatusPerkawinan.Size = new System.Drawing.Size(0, 13);
+            this.StatusPerkawinan.TabIndex = 24;
+            // 
+            // Pekerjaan
+            // 
+            this.Pekerjaan.AutoSize = true;
+            this.Pekerjaan.BackColor = System.Drawing.Color.White;
+            this.Pekerjaan.Location = new System.Drawing.Point(758, 385);
+            this.Pekerjaan.Name = "Pekerjaan";
+            this.Pekerjaan.Size = new System.Drawing.Size(0, 13);
+            this.Pekerjaan.TabIndex = 25;
+            // 
+            // Kewarganegaraan
+            // 
+            this.Kewarganegaraan.AutoSize = true;
+            this.Kewarganegaraan.BackColor = System.Drawing.Color.White;
+            this.Kewarganegaraan.Location = new System.Drawing.Point(758, 411);
+            this.Kewarganegaraan.Name = "Kewarganegaraan";
+            this.Kewarganegaraan.Size = new System.Drawing.Size(0, 13);
+            this.Kewarganegaraan.TabIndex = 26;
+            // 
+            // JenisKelamin
+            // 
+            this.JenisKelamin.AutoSize = true;
+            this.JenisKelamin.BackColor = System.Drawing.Color.White;
+            this.JenisKelamin.Location = new System.Drawing.Point(758, 259);
+            this.JenisKelamin.Name = "JenisKelamin";
+            this.JenisKelamin.Size = new System.Drawing.Size(0, 13);
+            this.JenisKelamin.TabIndex = 27;
+            // 
             // Form1
             // 
             this.AccessibleDescription = "C-Major";
             this.AccessibleName = "C-Major";
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1076, 706);
+            this.Controls.Add(this.JenisKelamin);
+            this.Controls.Add(this.Kewarganegaraan);
+            this.Controls.Add(this.Pekerjaan);
+            this.Controls.Add(this.StatusPerkawinan);
+            this.Controls.Add(this.Agama);
+            this.Controls.Add(this.Alamat);
+            this.Controls.Add(this.GolonganDarah);
+            this.Controls.Add(this.TanggalLahir);
+            this.Controls.Add(this.TempatLahir);
+            this.Controls.Add(this.Nama);
+            this.Controls.Add(this.NIK);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -379,6 +503,18 @@ namespace GUI
                                 Console.WriteLine("Match found in biodata:");
                                 Console.WriteLine("Nama: " + biodata.Nama);
                                 Console.WriteLine("NIK: " + biodata.NIK);
+                                NIK.Text = "NIK : " + biodata.NIK;
+                                Nama.Text = "Nama : " + sidikJari.Nama;
+                                TempatLahir.Text = "Tempat Lahir : " + biodata.Tempat_Lahir;
+                                TanggalLahir.Text = "Tanggal Lahir : " + biodata.Tanggal_Lahir;
+                                JenisKelamin.Text = "Jenis Kelamin : " + biodata.Jenis_Kelamin;
+                                GolonganDarah.Text = "Golongan Darah : " + biodata.Golongan_Darah;
+                                Alamat.Text = "Alamat : " + biodata.Alamat;
+                                Agama.Text = "Agama : " + biodata.Agama;
+                                StatusPerkawinan.Text = "Status Perkawinan : " + biodata.Status_Perkawinan;
+                                Pekerjaan.Text = "Pekerjaan : " + biodata.Pekerjaan;
+                                Kewarganegaraan.Text = "Kewarganegaraan : " + biodata.Kewarganegaraan;
+                                
                                 break;
                             }
                         }
@@ -433,6 +569,16 @@ namespace GUI
         }
 
         private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }

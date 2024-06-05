@@ -37,6 +37,17 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label NIK;
+        private System.Windows.Forms.Label Nama;
+        private System.Windows.Forms.Label TempatLahir;
+        private System.Windows.Forms.Label TanggalLahir;
+        private System.Windows.Forms.Label GolonganDarah;
+        private System.Windows.Forms.Label Alamat;
+        private System.Windows.Forms.Label Agama;
+        private System.Windows.Forms.Label StatusPerkawinan;
+        private System.Windows.Forms.Label Pekerjaan;
+        private System.Windows.Forms.Label Kewarganegaraan;
+        private System.Windows.Forms.Label JenisKelamin;
     }
 }
 
