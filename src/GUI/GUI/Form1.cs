@@ -210,7 +210,7 @@ namespace GUI
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(903, 39);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Analisis Citra Sidik Jari dengan Algoritma KM dan BMP";
+            this.label7.Text = "Analisis Citra Sidik Jari dengan Algoritma KMP dan BM";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
