@@ -472,7 +472,7 @@ namespace GUI
             Console.WriteLine("Halo, dunia!");
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             // Reset biodata board
             this.pictureBox1.Image = null;
@@ -491,10 +491,11 @@ namespace GUI
 
             this.label10.Text = "Persentase Kecocokkan           :   ";
 
-            // Start search
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            if(this.toggleButton1.isKMP){
+            await Task.Run(() => {
+                // Start search
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                
                 // Get fingerprint list
                 List<Database.SidikJari> sidikJariList = LogicData.sidikJariList;
 
@@ -518,15 +519,17 @@ namespace GUI
                     float similarityASCII = HammingDistance.GetSimilarity(LogicData.chosenImageASCII, stringASCII);
                     float similarityBinary = HammingDistance.GetSimilarity(LogicData.chosenImageBinary, stringBinary);
 
-                    // Console.WriteLine("ASCII similarity: " + HammingDistance.GetSimilarity(LogicData.chosenImageASCII, stringASCII) + "%");
-                    // Console.WriteLine("Binary similarity: " + HammingDistance.GetSimilarity(LogicData.chosenImageBinary, stringBinary) + "%\n");
-                    Console.WriteLine("ASCII similarity: " + similarityASCII + "%");
-                    Console.WriteLine("Binary similarity: " + similarityBinary + "%\n");
+                    Console.WriteLine("ASCII similarity: " + similarityASCII + "%\n");
+                    // Console.WriteLine("Binary similarity: " + similarityBinary + "%\n");
 
     
-                    if (match != -1 || similarityASCII > 80 || similarityBinary > 85) {
+                    if (match != -1 || similarityASCII > 80) {
                         // Set pictureBox2 to matched fingerprint
-                        pictureBox1.Image = bitmap;
+                        
+                        Invoke((Action)(() => {
+                            pictureBox1.Image = bitmap;
+                        }));
+
                         List<Database.Biodata> biodataList = LogicData.biodataList;
                         string alayRegex = RegexAlay.NameToRegex(sidikJari.Nama.ToLower());
                         Console.WriteLine(alayRegex);
@@ -538,19 +541,22 @@ namespace GUI
                                 Console.WriteLine("Match found in biodata:");
                                 Console.WriteLine("Nama: " + biodata.Nama);
                                 Console.WriteLine("NIK: " + biodata.NIK);
-                                NIK.Text = "NIK : " + biodata.NIK;
-                                Nama.Text = "Nama : " + sidikJari.Nama;
-                                TempatLahir.Text = "Tempat Lahir : " + biodata.Tempat_Lahir;
-                                TanggalLahir.Text = "Tanggal Lahir : " + biodata.Tanggal_Lahir;
-                                JenisKelamin.Text = "Jenis Kelamin : " + biodata.Jenis_Kelamin;
-                                GolonganDarah.Text = "Golongan Darah : " + biodata.Golongan_Darah;
-                                Alamat.Text = "Alamat : " + biodata.Alamat;
-                                Agama.Text = "Agama : " + biodata.Agama;
-                                StatusPerkawinan.Text = "Status Perkawinan : " + biodata.Status_Perkawinan;
-                                Pekerjaan.Text = "Pekerjaan : " + biodata.Pekerjaan;
-                                Kewarganegaraan.Text = "Kewarganegaraan : " + biodata.Kewarganegaraan;
 
-                                this.label10.Text = "Persentase Kecocokkan           :   " + similarityASCII + " %";
+                                Invoke((Action)(() => {
+                                    NIK.Text = "NIK : " + biodata.NIK;
+                                    Nama.Text = "Nama : " + sidikJari.Nama;
+                                    TempatLahir.Text = "Tempat Lahir : " + biodata.Tempat_Lahir;
+                                    TanggalLahir.Text = "Tanggal Lahir : " + biodata.Tanggal_Lahir;
+                                    JenisKelamin.Text = "Jenis Kelamin : " + biodata.Jenis_Kelamin;
+                                    GolonganDarah.Text = "Golongan Darah : " + biodata.Golongan_Darah;
+                                    Alamat.Text = "Alamat : " + biodata.Alamat;
+                                    Agama.Text = "Agama : " + biodata.Agama;
+                                    StatusPerkawinan.Text = "Status Perkawinan : " + biodata.Status_Perkawinan;
+                                    Pekerjaan.Text = "Pekerjaan : " + biodata.Pekerjaan;
+                                    Kewarganegaraan.Text = "Kewarganegaraan : " + biodata.Kewarganegaraan;
+
+                                    this.label10.Text = "Persentase Kecocokkan           :   " + similarityASCII + " %";
+                                }));
                                 
                                 break;
                             }
@@ -558,9 +564,17 @@ namespace GUI
                         break;
                     }
                 }
-            }
-            stopwatch.Stop();
-            this.label9.Text = "Waktu Pencarian                        :  " + stopwatch.ElapsedMilliseconds + " ms";
+                
+                // Set time taken
+                stopwatch.Stop();
+
+                Invoke((Action)(() => {
+                    this.label9.Text = "Waktu Pencarian                        :  " + stopwatch.ElapsedMilliseconds + " ms";
+                }));
+            });
+
+            // if(this.toggleButton1.isKMP){
+            // }
         }
 
         private void label4_Click(object sender, EventArgs e)

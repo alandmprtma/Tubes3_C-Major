@@ -124,3 +124,7 @@ C:\Users\LENOVO\Documents\Kuliah\[Kuliah] Semester IV\Strategi Algoritma [IF2211
 C:\Users\LENOVO\Documents\Kuliah\[Kuliah] Semester IV\Strategi Algoritma [IF2211]\Tubes_3\Tubes3_C-Major\src\GUI\GUI\obj\Debug\GUI.csproj.Up2Date
 C:\Users\LENOVO\Documents\Kuliah\[Kuliah] Semester IV\Strategi Algoritma [IF2211]\Tubes_3\Tubes3_C-Major\src\GUI\GUI\obj\Debug\GUI.exe
 C:\Users\LENOVO\Documents\Kuliah\[Kuliah] Semester IV\Strategi Algoritma [IF2211]\Tubes_3\Tubes3_C-Major\src\GUI\GUI\obj\Debug\GUI.pdb
+C:\Users\LENOVO\Documents\Kuliah\[Kuliah] Semester IV\Strategi Algoritma [IF2211]\Tubes_3\Tubes3_C-Major\src\GUI\GUI\bin\Debug\GUI.exe.manifest
+C:\Users\LENOVO\Documents\Kuliah\[Kuliah] Semester IV\Strategi Algoritma [IF2211]\Tubes_3\Tubes3_C-Major\src\GUI\GUI\bin\Debug\GUI.application
+C:\Users\LENOVO\Documents\Kuliah\[Kuliah] Semester IV\Strategi Algoritma [IF2211]\Tubes_3\Tubes3_C-Major\src\GUI\GUI\obj\Debug\GUI.exe.manifest
+C:\Users\LENOVO\Documents\Kuliah\[Kuliah] Semester IV\Strategi Algoritma [IF2211]\Tubes_3\Tubes3_C-Major\src\GUI\GUI\obj\Debug\GUI.application
