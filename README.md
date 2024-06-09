@@ -1,5 +1,11 @@
-![](./img/gif1.gif)
-![](./img/gif2.gif)
+<p align="center">
+  <img src="./img/gif1.gif" alt="gif1">
+</p>
+
+<p align="center">
+  <img src="./img/gif2.gif" alt="gif2">
+</p>
+
 
 # 🕵️‍♂️🔍 Fingerprint Biometric Detection Desktop Application
 
