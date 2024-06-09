@@ -96,4 +96,5 @@ Alternatively, you can run the project using Visual Studio:
 <div href="https://youtu.be/3QdyyGS78xo" align="center">
     <img src="https://img.youtube.com/vi/3QdyyGS78xo/maxresdefault.jpg" width="600" height="400" alt="Watch the video">
     <p><i>Bonus Video Tugas Besar 3 Strategi Algoritma Kelompok C-Major</i></p>
+   <a href="https://youtu.be/3QdyyGS78xo">Link</a>
 </div>
