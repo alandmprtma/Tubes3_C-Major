@@ -1,10 +1,13 @@
 <p align="center">
-  <img src="./img/gif1.gif" alt="gif1">
+  <img src="./img/gif1.gif" alt="gif1" width="450">
+    <p align = "center"><i>Ilustrasi Penggunaan Aplikasi Desktop</i></p>
 </p>
 
 <p align="center">
-  <img src="./img/gif2.gif" alt="gif2">
+  <img src="./img/gif2.gif" alt="gif2" width="450">
+    <p align = "center"><i>Hasil Penelusuran Aplikasi Desktop</i></p>
 </p>
+
 
 
 # 🕵️‍♂️🔍 Fingerprint Biometric Detection Desktop Application
