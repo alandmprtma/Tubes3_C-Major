@@ -48,6 +48,13 @@
         private System.Windows.Forms.Label Pekerjaan;
         private System.Windows.Forms.Label Kewarganegaraan;
         private System.Windows.Forms.Label JenisKelamin;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label17;
     }
 }
 

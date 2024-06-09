@@ -21,6 +21,7 @@ namespace GUI.Logic
         public static string chosenImageASCII;
         public static string chosenImageBinary;
         public static Boolean isImageChosen = false;
+        public static int similarityLowerBound;
     }
 
     internal class Manipulation

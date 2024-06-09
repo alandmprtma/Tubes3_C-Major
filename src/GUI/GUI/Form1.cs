@@ -26,7 +26,10 @@ namespace GUI
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            for (int i = 0; i <= 100; i++) comboBox1.Items.Add(i);
+            comboBox1.SelectedIndex = 65;
+            LogicData.similarityLowerBound = 65;
         }
 
         private void InitializeComponent()
@@ -46,7 +49,6 @@ namespace GUI
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.toggleButton1 = new GUI.ToggleButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -61,6 +63,14 @@ namespace GUI
             this.Pekerjaan = new System.Windows.Forms.Label();
             this.Kewarganegaraan = new System.Windows.Forms.Label();
             this.JenisKelamin = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.toggleButton1 = new GUI.ToggleButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imageUploader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -122,7 +132,7 @@ namespace GUI
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(265, 588);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 17);
+            this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "KMP";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -134,7 +144,7 @@ namespace GUI
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(428, 588);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 17);
+            this.label2.Size = new System.Drawing.Size(37, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "BM";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -142,6 +152,7 @@ namespace GUI
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Khaki;
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(526, 580);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 43);
@@ -155,7 +166,7 @@ namespace GUI
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(316, 596);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.Size = new System.Drawing.Size(0, 16);
             this.label3.TabIndex = 8;
             // 
             // label4
@@ -164,7 +175,7 @@ namespace GUI
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(135, 121);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 13);
+            this.label4.Size = new System.Drawing.Size(120, 16);
             this.label4.TabIndex = 9;
             this.label4.Text = "Sidik Jari Masukan";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -175,7 +186,7 @@ namespace GUI
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(511, 121);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 13);
+            this.label5.Size = new System.Drawing.Size(104, 16);
             this.label5.TabIndex = 10;
             this.label5.Text = "Sidik Jari Cocok";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -186,7 +197,7 @@ namespace GUI
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(860, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.Size = new System.Drawing.Size(77, 16);
             this.label6.TabIndex = 11;
             this.label6.Text = "List Biodata";
             // 
@@ -197,7 +208,7 @@ namespace GUI
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(177, 66);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(725, 31);
+            this.label7.Size = new System.Drawing.Size(903, 39);
             this.label7.TabIndex = 12;
             this.label7.Text = "Analisis Citra Sidik Jari dengan Algoritma KM dan BMP";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -209,23 +220,10 @@ namespace GUI
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(245, 23);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(589, 31);
+            this.label8.Size = new System.Drawing.Size(729, 39);
             this.label8.TabIndex = 13;
             this.label8.Text = "Tugas Besar 3 Strategi Algoritma 2023/2024";
             this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // toggleButton1
-            // 
-            this.toggleButton1.AutoSize = true;
-            this.toggleButton1.BackColor = System.Drawing.Color.Transparent;
-            this.toggleButton1.Location = new System.Drawing.Point(319, 588);
-            this.toggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
-            this.toggleButton1.Name = "toggleButton1";
-            this.toggleButton1.Size = new System.Drawing.Size(92, 22);
-            this.toggleButton1.TabIndex = 4;
-            this.toggleButton1.Text = "toggleButton1";
-            this.toggleButton1.UseVisualStyleBackColor = false;
-            this.toggleButton1.CheckedChanged += new System.EventHandler(this.toggleButton1_CheckedChanged);
             // 
             // label9
             // 
@@ -235,7 +233,7 @@ namespace GUI
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(684, 576);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(284, 20);
+            this.label9.Size = new System.Drawing.Size(359, 25);
             this.label9.TabIndex = 14;
             this.label9.Text = "Waktu Pencarian                        :  xxx ms";
             this.label9.Click += new System.EventHandler(this.label9_Click);
@@ -246,9 +244,9 @@ namespace GUI
             this.label10.BackColor = System.Drawing.Color.Khaki;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(684, 611);
+            this.label10.Location = new System.Drawing.Point(684, 639);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(273, 20);
+            this.label10.Size = new System.Drawing.Size(344, 25);
             this.label10.TabIndex = 15;
             this.label10.Text = "Persentase Kecocokkan           :   xx %";
             this.label10.Click += new System.EventHandler(this.label10_Click);
@@ -258,7 +256,7 @@ namespace GUI
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(858, 581);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 13);
+            this.label11.Size = new System.Drawing.Size(0, 16);
             this.label11.TabIndex = 16;
             // 
             // NIK
@@ -267,7 +265,7 @@ namespace GUI
             this.NIK.BackColor = System.Drawing.Color.White;
             this.NIK.Location = new System.Drawing.Point(758, 160);
             this.NIK.Name = "NIK";
-            this.NIK.Size = new System.Drawing.Size(0, 13);
+            this.NIK.Size = new System.Drawing.Size(0, 16);
             this.NIK.TabIndex = 17;
             // 
             // Nama
@@ -276,7 +274,7 @@ namespace GUI
             this.Nama.BackColor = System.Drawing.Color.White;
             this.Nama.Location = new System.Drawing.Point(758, 184);
             this.Nama.Name = "Nama";
-            this.Nama.Size = new System.Drawing.Size(0, 13);
+            this.Nama.Size = new System.Drawing.Size(0, 16);
             this.Nama.TabIndex = 18;
             // 
             // TempatLahir
@@ -285,7 +283,7 @@ namespace GUI
             this.TempatLahir.BackColor = System.Drawing.Color.White;
             this.TempatLahir.Location = new System.Drawing.Point(758, 209);
             this.TempatLahir.Name = "TempatLahir";
-            this.TempatLahir.Size = new System.Drawing.Size(0, 13);
+            this.TempatLahir.Size = new System.Drawing.Size(0, 16);
             this.TempatLahir.TabIndex = 19;
             // 
             // TanggalLahir
@@ -294,7 +292,7 @@ namespace GUI
             this.TanggalLahir.BackColor = System.Drawing.Color.White;
             this.TanggalLahir.Location = new System.Drawing.Point(758, 234);
             this.TanggalLahir.Name = "TanggalLahir";
-            this.TanggalLahir.Size = new System.Drawing.Size(0, 13);
+            this.TanggalLahir.Size = new System.Drawing.Size(0, 16);
             this.TanggalLahir.TabIndex = 20;
             // 
             // GolonganDarah
@@ -303,7 +301,7 @@ namespace GUI
             this.GolonganDarah.BackColor = System.Drawing.Color.White;
             this.GolonganDarah.Location = new System.Drawing.Point(758, 285);
             this.GolonganDarah.Name = "GolonganDarah";
-            this.GolonganDarah.Size = new System.Drawing.Size(0, 13);
+            this.GolonganDarah.Size = new System.Drawing.Size(0, 16);
             this.GolonganDarah.TabIndex = 21;
             // 
             // Alamat
@@ -312,7 +310,7 @@ namespace GUI
             this.Alamat.BackColor = System.Drawing.Color.White;
             this.Alamat.Location = new System.Drawing.Point(758, 309);
             this.Alamat.Name = "Alamat";
-            this.Alamat.Size = new System.Drawing.Size(0, 13);
+            this.Alamat.Size = new System.Drawing.Size(0, 16);
             this.Alamat.TabIndex = 22;
             // 
             // Agama
@@ -321,7 +319,7 @@ namespace GUI
             this.Agama.BackColor = System.Drawing.Color.White;
             this.Agama.Location = new System.Drawing.Point(758, 334);
             this.Agama.Name = "Agama";
-            this.Agama.Size = new System.Drawing.Size(0, 13);
+            this.Agama.Size = new System.Drawing.Size(0, 16);
             this.Agama.TabIndex = 23;
             this.Agama.Click += new System.EventHandler(this.label12_Click);
             // 
@@ -331,7 +329,7 @@ namespace GUI
             this.StatusPerkawinan.BackColor = System.Drawing.Color.White;
             this.StatusPerkawinan.Location = new System.Drawing.Point(758, 359);
             this.StatusPerkawinan.Name = "StatusPerkawinan";
-            this.StatusPerkawinan.Size = new System.Drawing.Size(0, 13);
+            this.StatusPerkawinan.Size = new System.Drawing.Size(0, 16);
             this.StatusPerkawinan.TabIndex = 24;
             // 
             // Pekerjaan
@@ -340,7 +338,7 @@ namespace GUI
             this.Pekerjaan.BackColor = System.Drawing.Color.White;
             this.Pekerjaan.Location = new System.Drawing.Point(758, 385);
             this.Pekerjaan.Name = "Pekerjaan";
-            this.Pekerjaan.Size = new System.Drawing.Size(0, 13);
+            this.Pekerjaan.Size = new System.Drawing.Size(0, 16);
             this.Pekerjaan.TabIndex = 25;
             // 
             // Kewarganegaraan
@@ -349,7 +347,7 @@ namespace GUI
             this.Kewarganegaraan.BackColor = System.Drawing.Color.White;
             this.Kewarganegaraan.Location = new System.Drawing.Point(758, 411);
             this.Kewarganegaraan.Name = "Kewarganegaraan";
-            this.Kewarganegaraan.Size = new System.Drawing.Size(0, 13);
+            this.Kewarganegaraan.Size = new System.Drawing.Size(0, 16);
             this.Kewarganegaraan.TabIndex = 26;
             // 
             // JenisKelamin
@@ -358,8 +356,105 @@ namespace GUI
             this.JenisKelamin.BackColor = System.Drawing.Color.White;
             this.JenisKelamin.Location = new System.Drawing.Point(758, 259);
             this.JenisKelamin.Name = "JenisKelamin";
-            this.JenisKelamin.Size = new System.Drawing.Size(0, 13);
+            this.JenisKelamin.Size = new System.Drawing.Size(0, 16);
             this.JenisKelamin.TabIndex = 27;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Khaki;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(39, 499);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(115, 25);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "Mengecek: ";
+            this.label12.Click += new System.EventHandler(this.label12_Click_1);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Khaki;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(39, 534);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(122, 25);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Kecocokan: ";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Khaki;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(891, 607);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(109, 25);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "mm:ss:ddd";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // toggleButton1
+            // 
+            this.toggleButton1.AutoSize = true;
+            this.toggleButton1.BackColor = System.Drawing.Color.Transparent;
+            this.toggleButton1.Location = new System.Drawing.Point(319, 588);
+            this.toggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
+            this.toggleButton1.Name = "toggleButton1";
+            this.toggleButton1.Size = new System.Drawing.Size(111, 22);
+            this.toggleButton1.TabIndex = 4;
+            this.toggleButton1.Text = "toggleButton1";
+            this.toggleButton1.UseVisualStyleBackColor = false;
+            this.toggleButton1.CheckedChanged += new System.EventHandler(this.toggleButton1_CheckedChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Khaki;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(756, 499);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(180, 25);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "Total pengecekan: ";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Khaki;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(756, 534);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(79, 25);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "Status: ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(536, 640);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 32;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Khaki;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(297, 639);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(273, 25);
+            this.label17.TabIndex = 33;
+            this.label17.Text = "Batas bawah kecocokan (%): ";
             // 
             // Form1
             // 
@@ -367,6 +462,13 @@ namespace GUI
             this.AccessibleName = "C-Major";
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1076, 706);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.JenisKelamin);
             this.Controls.Add(this.Kewarganegaraan);
             this.Controls.Add(this.Pekerjaan);
@@ -445,7 +547,9 @@ namespace GUI
                     
                     LogicData.chosenImageASCII = stringASCII;
                     LogicData.chosenImageBinary = stringBinary;
-                    LogicData.isImageChosen = true;                }
+                    LogicData.isImageChosen = true;
+                    this.button2.Enabled = true;
+                }
             }
             catch (Exception) {
                 MessageBox.Show("An Error Occured","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -492,11 +596,13 @@ namespace GUI
 
             this.label9.Text = "Waktu Pencarian                        :  ";
             this.label10.Text = "Persentase Kecocokkan           :   ";
+            this.label16.Text = "Status: Mencari";
 
             // Disable buttons
             this.button1.Enabled = false;
             this.button2.Enabled = false;
             this.toggleButton1.Enabled = false;
+            this.comboBox1.Enabled = false;
 
             // Start async search
             await Task.Run(() => {
@@ -508,6 +614,8 @@ namespace GUI
                 List<Database.SidikJari> sidikJariList = LogicData.sidikJariList;
 
                 // Iterate through fingerprint list
+                int counter = 0;
+                Boolean found = false;
                 foreach (Database.SidikJari sidikJari in sidikJariList) {
                     // Get fingerprint image
                     Bitmap bitmap = LogicManip.loadImage(sidikJari.BerkasCitra);
@@ -519,8 +627,10 @@ namespace GUI
                     // Check if exact match using KMP or Boyer-Moore
                     int match;
                     if (this.toggleButton1.isKMP) {
+                        Console.WriteLine("Using KMP");
                         match = LogicKMP.KMPMatch(LogicData.chosenImageASCII, stringASCII);
                     } else {
+                        Console.WriteLine("Using BM");
                         match = logicBM.BmMatch(LogicData.chosenImageASCII, stringASCII);
                     }
 
@@ -530,15 +640,24 @@ namespace GUI
 
                     // Print hamming distance
                     float similarityASCII = HammingDistance.GetSimilarity(LogicData.chosenImageASCII, stringASCII);
-                    float similarityBinary = HammingDistance.GetSimilarity(LogicData.chosenImageBinary, stringBinary);
 
                     Console.WriteLine("ASCII similarity: " + similarityASCII + "%\n");
-                    // Console.WriteLine("Binary similarity: " + similarityBinary + "%\n");
 
+                    // Update currently checked in GUI
+                    counter++;
+                    Invoke((Action)(() => {
+                        this.label12.Text = "Mengecek: " + sidikJari.BerkasCitra;
+                        this.label13.Text = "Kecocokan: " + similarityASCII + "%";
+                        this.label15.Text = "Total pengecekan: " + counter;
+                        this.label9.Text = "Waktu Pencarian                        :  " + stopwatch.ElapsedMilliseconds + " ms";
+                        this.label14.Text = stopwatch.Elapsed.ToString("mm\\:ss\\:fff");
+                    }));
     
-                    if (match != -1 || similarityASCII > 80) {
+                    if (match != -1 || similarityASCII >= LogicData.similarityLowerBound) {
+                        // Set found to true
+                        found = true;
+
                         // Set pictureBox2 to matched fingerprint
-                        
                         Invoke((Action)(() => {
                             pictureBox1.Image = bitmap;
                         }));
@@ -569,6 +688,7 @@ namespace GUI
                                     Kewarganegaraan.Text = "Kewarganegaraan : " + biodata.Kewarganegaraan;
 
                                     this.label10.Text = "Persentase Kecocokkan           :   " + similarityASCII + " %";
+                                    this.label16.Text = "Status: Ditemukan";
                                 }));
                                 
                                 break;
@@ -578,16 +698,28 @@ namespace GUI
                     }
                 }
                 
+                // If not found
+                if (!found) {
+                    Invoke((Action)(() => {
+                        this.NIK.Text = "Sidik jari tidak ditemukan.";
+                        this.label16.Text = "Status: Tidak Ditemukan";
+                    }));
+                }
+
                 // Set time taken
                 stopwatch.Stop();
 
                 Invoke((Action)(() => {
                     this.label9.Text = "Waktu Pencarian                        :  " + stopwatch.ElapsedMilliseconds + " ms";
+                    this.label14.Text = stopwatch.Elapsed.ToString("mm\\:ss\\:fff");
+                    this.label12.Text = "Mengecek: ";
+                    this.label13.Text = "Kecocokan: ";
 
                     // Re-enable buttons
                     this.button1.Enabled = true;
                     this.button2.Enabled = true;
                     this.toggleButton1.Enabled = true;
+                    this.comboBox1.Enabled = true;
                 }));
             });
         }
@@ -647,6 +779,27 @@ namespace GUI
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label12_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(Convert.ToInt32(comboBox1.SelectedItem) + 10);
+            LogicData.similarityLowerBound = Convert.ToInt32(comboBox1.SelectedItem);
         }
     }
 }
