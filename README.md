@@ -21,6 +21,14 @@ The Knuth-Morris-Pratt (KMP) algorithm is an efficient pattern matching algorith
 ### Boyer-Moore (BM) Algorithms
 The main component of the Boyer-Moore algorithm is the 'bad character' heuristic. When a character in the search string does not match a character in the text, this algorithm will look for the presence of that character in the search string. If the character is not found, the search string can jump as far as the length of the string. If a character is found in the search string, the string is skipped so that the last matching character in the search string aligns with the last position of the same character in the text.
 
+### Regular Expression
+Regular Expression (REGEX) is a very useful method for searching and manipulating strings based on certain patterns. Regex allows users to define complex patterns in text, which can be used to perform very specific searches, validations, and split and replace operations on strings. Examples of permitted variations include uppercase and lowercase letters, numbers similar to letters which can be seen on image below.
+
+<div align="center">
+  <img src="./RegexReplacement.png" alt="Interface" width="350"/>
+  <p><i>Regex Replacement Table</i></p>
+</div>
+
 
 ## 🛠️ Requirements 
 - Visual Studio (https://visualstudio.microsoft.com/vs/)
@@ -41,6 +49,8 @@ The main component of the Boyer-Moore algorithm is the 'bad character' heuristic
 1. Launch visual studio and open the cloned repository.
 2. In Visual Studio, navigate to `File > Open > Project/Solution` and select the file `src/GUI/GUI.sln`.
 3. In Visual Studio, click "Start" in the top center menu to run the program.
+
+Alternatively you can run the desktop application by click the executable file on `` directory.
 
 ## 📸 Screenshots
 
