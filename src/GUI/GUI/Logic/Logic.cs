@@ -19,6 +19,7 @@ namespace GUI.Logic
 
         // Input
         public static string chosenImageASCII;
+        public static string chosenImageBinary;
         public static Boolean isImageChosen = false;
     }
 
@@ -186,7 +187,6 @@ namespace GUI.Logic
         }
     }
 
-
     public class KMP
     {
         public static int KMPMatch(string text, string pattern)
@@ -305,8 +305,32 @@ namespace GUI.Logic
         }
     }
 
+    public class HammingDistance {
+        public static int GetHammingDistance(string a, string b) {
+            // Get min length of both strings
+            int minLength = Math.Min(a.Length, b.Length);
 
+            // Trim the longer string
+            a = a.Substring(0, minLength);
+            b = b.Substring(0, minLength);
 
+            // Calculate hamming distance
+            int distance = 0;
+
+            for (int i = 0; i < minLength; i++) {
+                if (a[i] != b[i]) {
+                    distance++;
+                }
+            }
+
+            return distance;
+        }
+
+        public static float GetSimilarity(string a, string b) {
+            int distance = GetHammingDistance(a, b);
+            return (1 - (float)distance / Math.Min(a.Length, b.Length)) * 100;
+        }
+    }
 
     //Cara pakai
     //static void Main(string[] args)

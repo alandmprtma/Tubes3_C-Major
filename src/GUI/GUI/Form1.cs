@@ -14,6 +14,7 @@ using LogicData = GUI.Logic.Data;
 using LogicManip = GUI.Logic.Manipulation;
 using LogicKMP = GUI.Logic.KMP;
 using RegexAlay = GUI.Logic.AlayConverter;
+using HammingDistance = GUI.Logic.HammingDistance;
 using Database = GUI.Database;
 using System.Text.RegularExpressions;
 using GUI.Database;
@@ -434,10 +435,16 @@ namespace GUI
 
                     string stringBinary = LogicManip.ImageToBinary(img);
                     string stringASCII = LogicManip.BinaryToAscii(stringBinary);
+
+                    // Write similarity
+                    if (LogicData.isImageChosen) {
+                        Console.WriteLine("ASCII similarity: " + HammingDistance.GetSimilarity(LogicData.chosenImageASCII, stringASCII) + "%");
+                        Console.WriteLine("Binary similarity: " + HammingDistance.GetSimilarity(LogicData.chosenImageBinary, stringBinary) + "%\n");
+                    }
                     
                     LogicData.chosenImageASCII = stringASCII;
-                    LogicData.isImageChosen = true;
-                }
+                    LogicData.chosenImageBinary = stringBinary;
+                    LogicData.isImageChosen = true;                }
             }
             catch (Exception) {
                 MessageBox.Show("An Error Occured","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -467,10 +474,28 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Reset biodata board
+            this.pictureBox1.Image = null;
+
+            this.NIK.Text = "";
+            this.Nama.Text = "";
+            this.TempatLahir.Text = "";
+            this.TanggalLahir.Text = "";
+            this.JenisKelamin.Text = "";
+            this.GolonganDarah.Text = "";
+            this.Alamat.Text = "";
+            this.Agama.Text = "";
+            this.StatusPerkawinan.Text = "";
+            this.Pekerjaan.Text = "";
+            this.Kewarganegaraan.Text = "";
+
+            this.label10.Text = "Persentase Kecocokkan           :   ";
+
+            // Start search
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             if(this.toggleButton1.isKMP){
-                 // Get fingerprint list
+                // Get fingerprint list
                 List<Database.SidikJari> sidikJariList = LogicData.sidikJariList;
 
                 // Iterate through fingerprint list
@@ -486,10 +511,20 @@ namespace GUI
                     int match = LogicKMP.KMPMatch(LogicData.chosenImageASCII, stringASCII);
 
                     // Print data
-                    Console.WriteLine("Nama: " + sidikJari.Nama);
+                    // Console.WriteLine("Nama: " + sidikJari.Nama);
                     Console.WriteLine("Path gambar: " + sidikJari.BerkasCitra);
+
+                    // Print hamming distance
+                    float similarityASCII = HammingDistance.GetSimilarity(LogicData.chosenImageASCII, stringASCII);
+                    float similarityBinary = HammingDistance.GetSimilarity(LogicData.chosenImageBinary, stringBinary);
+
+                    // Console.WriteLine("ASCII similarity: " + HammingDistance.GetSimilarity(LogicData.chosenImageASCII, stringASCII) + "%");
+                    // Console.WriteLine("Binary similarity: " + HammingDistance.GetSimilarity(LogicData.chosenImageBinary, stringBinary) + "%\n");
+                    Console.WriteLine("ASCII similarity: " + similarityASCII + "%");
+                    Console.WriteLine("Binary similarity: " + similarityBinary + "%\n");
+
     
-                    if (match != -1) {
+                    if (match != -1 || similarityASCII > 80 || similarityBinary > 85) {
                         // Set pictureBox2 to matched fingerprint
                         pictureBox1.Image = bitmap;
                         List<Database.Biodata> biodataList = LogicData.biodataList;
@@ -514,6 +549,8 @@ namespace GUI
                                 StatusPerkawinan.Text = "Status Perkawinan : " + biodata.Status_Perkawinan;
                                 Pekerjaan.Text = "Pekerjaan : " + biodata.Pekerjaan;
                                 Kewarganegaraan.Text = "Kewarganegaraan : " + biodata.Kewarganegaraan;
+
+                                this.label10.Text = "Persentase Kecocokkan           :   " + similarityASCII + " %";
                                 
                                 break;
                             }
