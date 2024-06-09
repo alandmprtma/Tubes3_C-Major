@@ -13,6 +13,7 @@ using System.Diagnostics;
 using LogicData = GUI.Logic.Data;
 using LogicManip = GUI.Logic.Manipulation;
 using LogicKMP = GUI.Logic.KMP;
+using logicBM = GUI.Logic.BoyerMoore;
 using RegexAlay = GUI.Logic.AlayConverter;
 using HammingDistance = GUI.Logic.HammingDistance;
 using Database = GUI.Database;
@@ -489,10 +490,17 @@ namespace GUI
             this.Pekerjaan.Text = "";
             this.Kewarganegaraan.Text = "";
 
+            this.label9.Text = "Waktu Pencarian                        :  ";
             this.label10.Text = "Persentase Kecocokkan           :   ";
 
+            // Disable buttons
+            this.button1.Enabled = false;
+            this.button2.Enabled = false;
+            this.toggleButton1.Enabled = false;
+
+            // Start async search
             await Task.Run(() => {
-                // Start search
+                // Start stopwatch
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 
@@ -508,8 +516,13 @@ namespace GUI
                     string stringBinary = LogicManip.ImageToBinary(bitmap);
                     string stringASCII = LogicManip.BinaryToAscii(stringBinary);
 
-                    // Check if exact match using KMP
-                    int match = LogicKMP.KMPMatch(LogicData.chosenImageASCII, stringASCII);
+                    // Check if exact match using KMP or Boyer-Moore
+                    int match;
+                    if (this.toggleButton1.isKMP) {
+                        match = LogicKMP.KMPMatch(LogicData.chosenImageASCII, stringASCII);
+                    } else {
+                        match = logicBM.BmMatch(LogicData.chosenImageASCII, stringASCII);
+                    }
 
                     // Print data
                     // Console.WriteLine("Nama: " + sidikJari.Nama);
@@ -570,11 +583,13 @@ namespace GUI
 
                 Invoke((Action)(() => {
                     this.label9.Text = "Waktu Pencarian                        :  " + stopwatch.ElapsedMilliseconds + " ms";
+
+                    // Re-enable buttons
+                    this.button1.Enabled = true;
+                    this.button2.Enabled = true;
+                    this.toggleButton1.Enabled = true;
                 }));
             });
-
-            // if(this.toggleButton1.isKMP){
-            // }
         }
 
         private void label4_Click(object sender, EventArgs e)
